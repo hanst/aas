@@ -19,7 +19,7 @@ object RunIntro extends Serializable {
   def main(args: Array[String]): Unit = {
     val sc = new SparkContext(new SparkConf().setAppName("Intro"))
    
-    val rawblocks = sc.textFile("hdfs:///user/ds/linkage")
+    val rawblocks = sc.textFile("hdfs:///user/hadoop/linkage")
     def isHeader(line: String) = line.contains("id_1")
     
     val noheader = rawblocks.filter(x => !isHeader(x))
